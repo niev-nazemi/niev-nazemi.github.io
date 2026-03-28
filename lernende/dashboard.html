@@ -3,47 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unterricht — Niev Nazemi</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Lernende — Niev Nazemi</title>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <header>
         <div class="header-inner">
-            <h1>Niev Nazemi</h1>
-            <p class="subtitle">Sekundarstufe I</p>
+            <h1>🎓 Lernende</h1>
+            <p class="subtitle">Willkommen! Wähle dein Fach.</p>
         </div>
     </header>
 
     <main>
-        <section class="intro">
-            <p>Willkommen auf meiner Unterrichtsseite. Hier findest du Materialien und Tafelbilder zu meinen Fächern.</p>
-        </section>
-
         <section class="subjects">
             <a href="mathematik/" class="subject-card">
                 <span class="subject-icon">∑</span>
                 <h2>Mathematik</h2>
-                <p>Algebra, Geometrie, Funktionen und mehr</p>
+                <p>Materialien und Übungen</p>
             </a>
             <a href="nt/" class="subject-card">
                 <span class="subject-icon">⚗</span>
                 <h2>NT</h2>
-                <p>Physik, Biologie, Chemie</p>
+                <p>Materialien und Übungen</p>
             </a>
             <a href="rzg/" class="subject-card">
                 <span class="subject-icon">🌍</span>
                 <h2>RZG</h2>
-                <p>Geschichte, Geografie, Gesellschaft</p>
+                <p>Materialien und Übungen</p>
             </a>
             <a href="informatik/" class="subject-card">
                 <span class="subject-icon">&lt;/&gt;</span>
                 <h2>Informatik</h2>
-                <p>Programmieren, Web, Projekte</p>
-            </a>
-            <a href="lernende/" class="subject-card">
-                <span class="subject-icon">🔒</span>
-                <h2>Lernende</h2>
-                <p>Geschützter Bereich für Schülerinnen und Schüler</p>
+                <p>Materialien und Übungen</p>
             </a>
         </section>
     </main>
@@ -51,5 +42,11 @@
     <footer>
         <p>&copy; 2026 Niev Nazemi</p>
     </footer>
+
+    <script>
+        if (sessionStorage.getItem('lernende_auth') !== 'true') {
+            window.location.href = 'index.html';
+        }
+    </script>
 </body>
 </html>

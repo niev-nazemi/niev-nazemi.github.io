@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lernende — Niev Nazemi</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .login-box {
+            max-width: 400px;
+            margin: 3rem auto;
+            background: var(--cream);
+            padding: 2.5rem;
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .login-box h2 {
+            color: var(--red);
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        .login-box p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .login-box input[type="password"] {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--coral);
+            border-radius: 8px;
+            font-size: 1rem;
+            background: var(--bg);
+            color: var(--text);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .login-box input[type="password"]:focus {
+            border-color: var(--red);
+        }
+
+        .login-box button {
+            width: 100%;
+            margin-top: 1rem;
+            padding: 0.75rem;
+            background: var(--red);
+            color: var(--bg);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .login-box button:hover {
+            background: var(--coral);
+        }
+
+        .error-msg {
+            color: var(--red);
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            min-height: 1.2em;
+        }
+
+        .lock-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <h1>Lernende</h1>
+            <p class="subtitle">Geschützter Bereich für Schülerinnen und Schüler</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="login-box">
+            <div class="lock-icon">🔒</div>
+            <h2>Passwort eingeben</h2>
+            <p>Dieser Bereich ist nur für Schülerinnen und Schüler zugänglich.</p>
+            <input type="password" id="pw" placeholder="Passwort" autofocus>
+            <button onclick="checkPassword()">Eintreten</button>
+            <div class="error-msg" id="error"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Niev Nazemi</p>
+    </footer>
+
+    <script>
+        function simpleHash(str) {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                const char = str.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash |= 0;
+            }
+            return hash;
+        }
+
+        const correctHash = simpleHash("Pythagoras");
+
+        function checkPassword() {
+            const input = document.getElementById('pw').value;
+            if (simpleHash(input) === correctHash) {
+                sessionStorage.setItem('lernende_auth', 'true');
+                window.location.href = 'dashboard.html';
+            } else {
+                document.getElementById('error').textContent = 'Falsches Passwort. Versuch es nochmal.';
+                document.getElementById('pw').value = '';
+                document.getElementById('pw').focus();
+            }
+        }
+
+        document.getElementById('pw').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') checkPassword();
+        });
+    </script>
+</body>
+</html>
