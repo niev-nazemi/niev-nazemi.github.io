@@ -1,55 +1,280 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unterricht — Niev Nazemi</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home — Niev Nazemi</title>
+<style>
+:root {
+    --bg: #FFFBF1;
+    --leaf: #EAF3DE;
+    --teal: #6DE1D9;
+    --green: #0F6E56;
+    --text: #2a2019;
+    --text-light: #6b5e50;
+    --radius: 16px;
+    --shadow: 0 4px 24px rgba(0,0,0,.06);
+}
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+html { font-size:16px; scroll-behavior:smooth; }
+body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+a { color:inherit; text-decoration:none; }
+
+/* === NAVBAR === */
+.navbar {
+    background: var(--green);
+    color: var(--bg);
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+}
+.nav-logo {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+.nav-links a {
+    color: var(--bg);
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+    padding: 4px 0;
+    border-bottom: 2px solid transparent;
+}
+.nav-links a:hover,
+.nav-links a.active {
+    opacity: 1;
+    border-bottom-color: var(--teal);
+}
+
+/* Burger */
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 6px;
+    background: none;
+    border: none;
+}
+.burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--bg);
+    transition: all 0.3s;
+}
+.burger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.burger.open span:nth-child(2) { opacity: 0; }
+.burger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* Mobile menu */
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: var(--green);
+    padding: 0 2rem 1rem;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+    color: var(--bg);
+    padding: 0.75rem 0;
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    opacity: 0.85;
+}
+.mobile-menu a:hover { opacity: 1; }
+
+/* === HERO SECTION === */
+.hero {
+    width: 100%;
+    padding: clamp(3rem, 8vw, 6rem) 2rem;
+    background: linear-gradient(135deg, var(--green), #0a5a48);
+    color: var(--bg);
+    text-align: center;
+}
+.hero h1 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
+}
+.hero p {
+    font-size: clamp(0.9rem, 2vw, 1.15rem);
+    opacity: 0.85;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* === BLURB CARDS === */
+.blurb-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: clamp(2rem, 5vw, 4rem) 2rem;
+    width: 100%;
+}
+.blurb-row {
+    display: flex;
+    gap: clamp(1rem, 3vw, 2rem);
+    flex-wrap: wrap;
+}
+.blurb-card {
+    flex: 1;
+    min-width: 280px;
+    background: var(--bg);
+    border: 2px solid var(--leaf);
+    border-radius: var(--radius);
+    padding: clamp(2rem, 4vw, 3rem);
+    text-align: center;
+    transition: all 0.25s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: var(--shadow);
+}
+.blurb-card:hover {
+    border-color: var(--teal);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(13, 110, 86, 0.12);
+}
+.blurb-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    flex-shrink: 0;
+}
+.blurb-card:nth-child(1) .blurb-icon {
+    background: linear-gradient(135deg, var(--green), var(--teal));
+    color: #fff;
+}
+.blurb-card:nth-child(2) .blurb-icon {
+    background: linear-gradient(135deg, var(--teal), #4ecdc4);
+    color: #fff;
+}
+.blurb-card h2 {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    font-weight: 700;
+    color: var(--green);
+}
+.blurb-card p {
+    font-size: clamp(0.8rem, 2vw, 0.95rem);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+.blurb-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--green);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: auto;
+    padding-top: 0.5rem;
+    transition: gap 0.2s;
+}
+.blurb-card:hover .blurb-arrow { gap: 10px; }
+
+/* === FOOTER === */
+footer {
+    background: var(--green);
+    color: var(--bg);
+    text-align: center;
+    padding: 1.5rem 2rem;
+    font-size: 0.85rem;
+    margin-top: auto;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .burger { display: flex; }
+    .blurb-row { flex-direction: column; }
+    .blurb-card { min-width: 100%; }
+}
+@media (max-width: 600px) {
+    .navbar { padding: 0 1rem; }
+    .hero { padding: 2.5rem 1rem; }
+    .blurb-section { padding: 1.5rem 1rem; }
+}
+</style>
 </head>
 <body>
-    <header>
-        <div class="header-inner">
-            <h1>Niev Nazemi</h1>
-            <p class="subtitle">Sekundarstufe I</p>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-inner">
+        <div class="nav-logo">Niev Nazemi</div>
+        <div class="nav-links">
+            <a href="./" class="active">Home</a>
+            <a href="lehrer/">Lehrer</a>
+            <a href="lernende/">Lernende</a>
         </div>
-    </header>
+        <button class="burger" onclick="this.classList.toggle('open');document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+<div class="mobile-menu">
+    <a href="./">Home</a>
+    <a href="lehrer/">Lehrer</a>
+    <a href="lernende/">Lernende</a>
+</div>
 
-    <main>
-        <section class="intro">
-            <p>Willkommen auf meiner Unterrichtsseite. Hier findest du Materialien und Tafelbilder zu meinen Fächern.</p>
-        </section>
+<!-- HERO -->
+<section class="hero">
+    <h1>Willkommen</h1>
+    <p>Unterricht · Materialien · Tafelbilder</p>
+</section>
 
-        <section class="subjects">
-            <a href="mathematik/" class="subject-card">
-                <span class="subject-icon">∑</span>
-                <h2>Mathematik</h2>
-                <p>Algebra, Geometrie, Funktionen und mehr</p>
-            </a>
-            <a href="nt/" class="subject-card">
-                <span class="subject-icon">⚗</span>
-                <h2>NT</h2>
-                <p>Physik, Biologie, Chemie</p>
-            </a>
-            <a href="rzg/" class="subject-card">
-                <span class="subject-icon">🌍</span>
-                <h2>RZG</h2>
-                <p>Geschichte, Geografie, Gesellschaft</p>
-            </a>
-            <a href="informatik/" class="subject-card">
-                <span class="subject-icon">&lt;/&gt;</span>
-                <h2>Informatik</h2>
-                <p>Programmieren, Web, Projekte</p>
-            </a>
-            <a href="lernende/" class="subject-card">
-                <span class="subject-icon">🔒</span>
-                <h2>Lernende</h2>
-                <p>Geschützter Bereich für Schülerinnen und Schüler</p>
-            </a>
-        </section>
-    </main>
+<!-- BLURB CARDS -->
+<section class="blurb-section">
+    <div class="blurb-row">
+        <a href="lehrer/" class="blurb-card">
+            <div class="blurb-icon">👨‍🏫</div>
+            <h2>Lehrer</h2>
+            <p>Unterrichtsmaterialien, Tafelbilder und Ressourcen für alle Fächer.</p>
+            <span class="blurb-arrow">Zum Lehrerbereich →</span>
+        </a>
+        <a href="lernende/" class="blurb-card">
+            <div class="blurb-icon">🎓</div>
+            <h2>Lernende</h2>
+            <p>Geschützter Bereich für Schülerinnen und Schüler mit Übungen und Materialien.</p>
+            <span class="blurb-arrow">Zum Lernendenbereich →</span>
+        </a>
+    </div>
+</section>
 
-    <footer>
-        <p>&copy; 2026 Niev Nazemi</p>
-    </footer>
+<footer>
+    <p>&copy; 2026 Niev Nazemi</p>
+</footer>
+
 </body>
 </html>
