@@ -73,7 +73,7 @@
         h1, h2, h3, h4 { font-family: var(--font-ui); line-height: 1.25; }
 
         p {
-            font-size: clamp(0.88rem, 1.8vw, 1rem);
+            font-size: 16px;
             margin-bottom: 0.6rem;
             max-width: 60ch;
         }
@@ -81,7 +81,7 @@
         /* ===== BREADCRUMB ===== */
         .breadcrumb {
             background: var(--blue-dark); padding: 0.6rem 0;
-            font-family: var(--font-ui); font-size: 0.8rem;
+            font-family: var(--font-ui); font-size: 14px;
         }
         .breadcrumb-inner { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1rem, 3vw, 2rem); }
         .breadcrumb a { color: var(--text-on-dark); opacity: 0.7; }
@@ -109,18 +109,18 @@
         }
         .hero-label {
             display: inline-block; font-family: var(--font-ui);
-            font-size: 0.7rem; font-weight: 700;
+            font-size: 12px; font-weight: 700;
             letter-spacing: 2px; text-transform: uppercase;
             color: var(--accent); margin-bottom: 0.6rem;
         }
         .hero h1 {
-            font-size: clamp(1.6rem, 4.5vw, 2.5rem);
+            font-size: 34px;
             font-weight: 800; letter-spacing: -0.5px; margin-bottom: 0.6rem;
         }
-        .hero-sub { font-size: clamp(0.9rem, 2vw, 1.1rem); opacity: 0.8; max-width: 55ch; }
+        .hero-sub { font-size: 16px; opacity: 0.8; max-width: 55ch; }
         .hero-tags { display: flex; gap: 0.75rem; margin-top: 1rem; flex-wrap: wrap; }
         .hero-tags span {
-            font-family: var(--font-ui); font-size: 0.75rem;
+            font-family: var(--font-ui); font-size: 13px;
             background: rgba(255,255,255,0.1); padding: 0.3rem 0.75rem;
             border-radius: 20px; border: 1px solid rgba(255,255,255,0.12);
         }
@@ -131,12 +131,12 @@
             padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem);
         }
         .section-label {
-            font-family: var(--font-ui); font-size: 0.7rem; font-weight: 700;
+            font-family: var(--font-ui); font-size: 12px; font-weight: 700;
             letter-spacing: 2px; text-transform: uppercase; color: var(--blue);
             margin-bottom: 0.3rem;
         }
         .section-title {
-            font-size: clamp(1.2rem, 3vw, 1.6rem); font-weight: 700;
+            font-size: 28px; font-weight: 700;
             color: var(--blue-dark); margin-bottom: 1.25rem;
             padding-bottom: 0.6rem; border-bottom: 3px solid var(--mid);
         }
@@ -158,14 +158,14 @@
             box-shadow: var(--shadow-elevation-high);
             transform: translateY(-2px);
         }
-        .kachel h3 { font-size: clamp(1rem, 2.2vw, 1.2rem); color: var(--blue); margin-bottom: 0.5rem; }
-        .kachel h4 { font-size: clamp(0.9rem, 1.8vw, 1rem); color: var(--blue-dark); margin-top: 0.75rem; margin-bottom: 0.3rem; }
+        .kachel h3 { font-size: 23px; color: var(--blue); margin-bottom: 0.5rem; }
+        .kachel h4 { font-size: 19px; color: var(--blue-dark); margin-top: 0.75rem; margin-bottom: 0.3rem; }
         .kachel p { color: var(--text); }
         .kachel--wide { flex: 1 1 100%; }
         .kachel--img { padding: 0; overflow: hidden; }
-        .kachel--img img { width: 100%; display: block; border-radius: var(--radius); min-width: auto; }
+        .kachel--img img { width: 100%; display: block; border-radius: var(--radius); min-width: auto; max-height: 350px; object-fit: contain; background: #fafafa; }
         .kachel--img .kachel-caption { padding: 0.8rem 1.2rem; }
-        .kachel-caption-text { font-family: var(--font-ui); font-size: 0.78rem; color: var(--text-light); font-style: italic; }
+        .kachel-caption-text { font-family: var(--font-ui); font-size: 14px; color: var(--text-light); font-style: italic; }
 
         /* --- Merksatz --- */
         .merksatz {
@@ -175,7 +175,7 @@
             box-shadow: var(--shadow-elevation-low);
         }
         .merksatz-label {
-            font-family: var(--font-ui); font-size: 0.68rem; font-weight: 700;
+            font-family: var(--font-ui); font-size: 11px; font-weight: 700;
             text-transform: uppercase; letter-spacing: 1.5px;
             color: var(--blue); margin-bottom: 0.3rem; display: block;
         }
@@ -185,7 +185,7 @@
         .tabelle-wrap { overflow-x: auto; border-radius: var(--radius-sm); }
         table {
             width: 100%; border-collapse: collapse;
-            font-family: var(--font-ui); font-size: clamp(0.78rem, 1.6vw, 0.9rem);
+            font-family: var(--font-ui); font-size: 15px;
             background: white; color: var(--text);
         }
         th { background: var(--blue-dark); color: var(--text-on-dark); font-weight: 600; text-align: left; padding: 0.6rem 0.8rem; }
@@ -199,7 +199,7 @@
             border-radius: var(--radius-sm); padding: 0.8rem 1rem; margin: 0.6rem 0;
         }
         .ueberraschung-label {
-            font-family: var(--font-ui); font-size: 0.68rem; font-weight: 700;
+            font-family: var(--font-ui); font-size: 11px; font-weight: 700;
             text-transform: uppercase; letter-spacing: 1.5px;
             color: var(--blue); display: block; margin-bottom: 0.25rem;
         }
@@ -219,8 +219,8 @@
             border: 1px solid rgba(90,156,181,0.2); border-top: 3px solid var(--mid);
             border-radius: var(--radius-sm); padding: 0.65rem 0.8rem;
         }
-        .mini-karte h4 { margin-top: 0; font-size: 0.88rem; }
-        .mini-karte p { font-size: 0.82rem; margin-bottom: 0; }
+        .mini-karte h4 { margin-top: 0; font-size: 19px; }
+        .mini-karte p { font-size: 15px; margin-bottom: 0; }
 
         /* --- Step-Strip --- */
         .step-strip { display: flex; flex-wrap: wrap; gap: clamp(0.6rem, 1.5vw, 1rem); }
@@ -231,14 +231,14 @@
             transition: box-shadow 0.25s ease, transform 0.25s ease;
         }
         .step-card:hover { box-shadow: var(--shadow-elevation-high); transform: translateY(-2px); }
-        .step-card img { width: 100%; display: block; min-width: auto; border-radius: 0; }
+        .step-card img { width: 100%; display: block; min-width: auto; border-radius: 0; max-height: 250px; object-fit: contain; background: #fafafa; }
         .step-card-body { padding: 0.7rem 0.9rem; }
         .step-nr {
-            font-family: var(--font-ui); font-size: 0.65rem; font-weight: 700;
+            font-family: var(--font-ui); font-size: 11px; font-weight: 700;
             letter-spacing: 1px; text-transform: uppercase;
             color: var(--blue); display: block; margin-bottom: 0.15rem;
         }
-        .step-card-body p { font-size: 0.85rem; margin-bottom: 0; }
+        .step-card-body p { font-size: 15px; margin-bottom: 0; }
 
         /* --- Trenner --- */
         .section-trenner { border: none; border-top: 2px solid rgba(90,156,181,0.2); margin: 0; }
@@ -247,7 +247,7 @@
         .site-footer {
             background: var(--blue-dark); color: var(--text-on-dark);
             text-align: center; padding: 1.2rem 2rem;
-            font-family: var(--font-ui); font-size: 0.82rem;
+            font-family: var(--font-ui); font-size: 14px;
         }
         .site-footer a { color: var(--accent); }
 
@@ -255,10 +255,13 @@
         @media (max-width: 768px) {
             .kachel { flex: 1 1 100%; }
             .step-card { flex: 1 1 100%; }
+            .hero h1 { font-size: 28px; }
+            .section-title { font-size: 23px; }
         }
         @media (max-width: 600px) {
             .hero { padding: 1.5rem 0; }
             .mini-karte { flex: 1 1 100%; }
+            .hero h1 { font-size: 24px; }
         }
 
         /* ===== PRINT ===== */
@@ -480,7 +483,7 @@
 
     </div>
 
-    <h3 style="font-family: var(--font-ui); color: var(--blue-dark); margin: 1.5rem 0 1rem;">Schritt für Schritt: Vektoren grafisch addieren</h3>
+    <h3 style="font-family: var(--font-ui); font-size: 23px; color: var(--blue-dark); margin: 1.5rem 0 1rem;">Schritt für Schritt: Vektoren grafisch addieren</h3>
     <div class="step-strip">
         <div class="step-card">
             <img src="img/koordinatensystem-leer.png" alt="Leeres Koordinatensystem." loading="lazy">
